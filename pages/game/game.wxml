@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="header">
+    <view class="title">🎯 弹球王者</view>
+  </view>
+
+  <view class="info-panel">
+    <view class="info-item">
+      <text class="info-label">得分</text>
+      <text class="info-value">{{score}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">最高分</text>
+      <text class="info-value">{{bestScore}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">球数</text>
+      <text class="info-value">{{ballCount}}</text>
+    </view>
+  </view>
+
+  <view class="canvas-container">
+    <canvas 
+      type="2d" 
+      id="gameCanvas" 
+      class="game-canvas"
+      bindtouchstart="onTouchStart"
+      bindtouchmove="onTouchMove"
+      bindtouchend="onTouchEnd"
+    ></canvas>
+  </view>
+
+  <view class="controls">
+    <text class="tips">{{isAiming ? '拖动调整角度，松手发射' : (isPlaying ? '等待球回收' : '点击开始游戏')}}</text>
+  </view>
+
+  <view class="button-group">
+    <button class="game-btn" bindtap="startGame" wx:if="{{!isPlaying}}">
+      {{gameOver ? '重新开始' : '开始游戏'}}
+    </button>
+  </view>
+</view>
